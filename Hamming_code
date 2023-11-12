@@ -1,0 +1,22 @@
+///100 Days of RTL///
+
+///Abilash P///
+
+///Hamming code for error controlling///
+
+module HC (Data, Code);
+
+input [3:0] Data;
+output[6:0] Code;
+
+wire p;
+wire q;
+wire r;
+
+assign p = Data[0] ^ Data[1] ^ Data[3];
+assign q = Data[0] ^ Data[2] ^ Data[3];
+assign r = Data[0] ^ Data[1] ^ Data[2];
+
+assign Code = {Data,p,q,r};
+
+endmodule
