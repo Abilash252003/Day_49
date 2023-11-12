@@ -1,0 +1,28 @@
+///100 Days of RTL///
+
+///Abilash P///
+
+///Hamming code for error controlling///
+
+module HC_tb ();
+
+reg [3:0]Data;
+wire[6:0]Code;
+
+HC DUT (.Data(Data), .Code(Code));
+
+integer i;
+
+initial
+begin
+  for (i=0; i<16; i=i+1)
+  begin
+     Data = i;
+     $display("The input Data is = %b",Data);
+     #20;
+  end
+end
+
+initial
+  $monitor ("The transmitted message is = %b",Code);
+endmodule
